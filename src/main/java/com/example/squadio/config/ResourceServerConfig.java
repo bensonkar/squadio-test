@@ -1,0 +1,27 @@
+package com.example.squadio.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
+
+@Configuration
+@EnableResourceServer
+public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/oauth/**", "/swagger-ui.html", "/swagger-ui/**", "/change-password/**", "/actuator", "/actuator/**").permitAll()
+                .antMatchers("/users", "/users/**", "accounts/**").hasAnyAuthority("ADMIN", "USER")
+                .anyRequest()
+                .authenticated()
+                .and()
+                .httpBasic()
+                .and()
+                .exceptionHandling()
+                .accessDeniedHandler(new OAuth2AccessDeniedHandler());
+    }
+
+}
