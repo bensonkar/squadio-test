@@ -17,3 +17,4 @@ NB: Use Intellij IDEA
 11. ![img_2.png](img_2.png)
 12. Below is a screenshot of sonarqube results
 13. ![img_3.png](img_3.png)
+14. To access swagger visit http://localhost:8080/api/v1/swagger-ui.html
