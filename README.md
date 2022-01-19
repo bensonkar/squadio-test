@@ -4,7 +4,7 @@ The following steps below explains how to clone or download it from GITHUB and r
 
 NB: Use Intellij IDEA
 
-1. use this repository to clone the project https://github.com/bensonkar/squadio-test.git
+1. use this repository to clone the project https://github.com/bensonkar/squadio-test.git.The default branch is dev
 2. Download intellij IDEA and import project
 3. Wait for it to download dependencies then hit RUN button to start the project.The project will run on port 8080 with context path /api/v1
 4. To test the APIs you need token. So you must login first. Use credential attached in the sent earlier .
